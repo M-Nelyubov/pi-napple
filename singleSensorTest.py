@@ -36,17 +36,19 @@ sensor1 = adafruit_tcs34725.TCS34725(tca[1])
 # Main loop reading color and printing it every second.
 while True:
     
+    sensor = sensor0
     # Read the color temperature and lux of the sensor too.
-    temp = int(sensor0.color_temperature)
-    lux = int(sensor0.lux)
+    temp = int(sensor.color_temperature)
+    lux = int(sensor.lux)
     colorTuple = sensor.color_rgb_bytes 
     print("s0   Temperature: {0}\tK Lux: {1}".format(temp, lux))
     # Delay for a second and repeat.
     
     
+    sensor = sensor1
     # Read the color temperature and lux of the sensor too.
-    temp = int(sensor1.color_temperature)
-    lux = int(sensor1.lux)
+    temp = int(sensor.color_temperature)
+    lux = int(sensor.lux)
     colorTuple = sensor.color_rgb_bytes 
     print("s1   Temperature: {0}\tK Lux: {1}".format(temp, lux))
     # Delay for a second and repeat.
