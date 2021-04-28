@@ -30,7 +30,7 @@ sensor = adafruit_tcs34725.TCS34725(i2c)
 # Main loop reading color and printing it every second.
 while True:
     # Read the color temperature and lux of the sensor too.
-    temp = sensor.color_temperature
+    temp = int(sensor.color_temperature)
     lux = int(sensor.lux)
     colorTuple = sensor.color_rgb_bytes 
     print("Temperature: {0}\tK Lux: {1}\tcolorTuple: {2}".format(temp, lux, colorTuple))
