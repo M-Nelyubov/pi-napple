@@ -23,8 +23,9 @@ lcd = character_lcd.Character_LCD_Mono(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6,lc
 i2c = busio.I2C(board.SCL, board.SDA)
 #sensor = adafruit_tcs34725.TCS34725(i2c)
 tca = adafruit_tca9548a.TCA9548A(i2c)
-sensor0 = adafruit_tcs34725.TCS34725(tca[0])
-sensor1 = adafruit_tcs34725.TCS34725(tca[1])
+sensors = []
+sensor[0] = adafruit_tcs34725.TCS34725(tca[0])
+sensor[1] = adafruit_tcs34725.TCS34725(tca[1])
 #sensor2 = adafruit_tcs34725.TCS34725(tca[2])
 #sensor3 = adafruit_tcs34725.TCS34725(tca[3])
 
@@ -41,7 +42,7 @@ while True:
     temp = int(sensor.color_temperature)
     lux = int(sensor.lux)
     colorTuple = sensor.color_rgb_bytes 
-    print("s0   Temperature: {0}\tK Lux: {1}".format(temp, lux))
+    str0=("s0   Tmp: {0}\tK Lux: {1}".format(temp, lux))
     # Delay for a second and repeat.
     
     
@@ -50,7 +51,7 @@ while True:
     temp = int(sensor.color_temperature)
     lux = int(sensor.lux)
     colorTuple = sensor.color_rgb_bytes 
-    print("s1   Temperature: {0}\tK Lux: {1}".format(temp, lux))
+    str1=("s1   Temperature: {0}\tK Lux: {1}".format(temp, lux))
     # Delay for a second and repeat.
-    
+    print(str0+str1)
     time.sleep(0.25)
