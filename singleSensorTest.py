@@ -42,7 +42,7 @@ while True:
     temp = int(sensor.color_temperature)
     lux = int(sensor.lux)
     colorTuple = sensor.color_rgb_bytes 
-    str0=("s0   Tmp: {0}\tK Lux: {1}".format(temp, lux))
+    str0=("s0:\tTmp: {0}\tLux: {1}".format(temp, lux))
     # Delay for a second and repeat.
     
     
@@ -51,7 +51,7 @@ while True:
     temp = int(sensor.color_temperature)
     lux = int(sensor.lux)
     colorTuple = sensor.color_rgb_bytes 
-    str1=("s1   Temperature: {0}\tK Lux: {1}".format(temp, lux))
+    str1=("\t\ts1:\tTmp: {0}\tK Lux: {1}".format(temp, lux))
     # Delay for a second and repeat.
     print(str0+str1)
     time.sleep(0.25)
