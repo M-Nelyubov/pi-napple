@@ -25,8 +25,8 @@ i2c = busio.I2C(board.SCL, board.SDA)
 tca = adafruit_tca9548a.TCA9548A(i2c)
 sensor0 = adafruit_tcs34725.TCS34725(tca[0])
 sensor1 = adafruit_tcs34725.TCS34725(tca[1])
-sensor2 = adafruit_tcs34725.TCS34725(tca[2])
-sensor3 = adafruit_tcs34725.TCS34725(tca[3])
+#sensor2 = adafruit_tcs34725.TCS34725(tca[2])
+#sensor3 = adafruit_tcs34725.TCS34725(tca[3])
 
 #Attempt to print sensor object properties:
 #for property, value in vars(sensor).items():
