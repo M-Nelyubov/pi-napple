@@ -24,8 +24,8 @@ i2c = busio.I2C(board.SCL, board.SDA)
 #sensor = adafruit_tcs34725.TCS34725(i2c)
 tca = adafruit_tca9548a.TCA9548A(i2c)
 sensors = []
-sensor[0] = adafruit_tcs34725.TCS34725(tca[0])
-sensor[1] = adafruit_tcs34725.TCS34725(tca[1])
+sensors[0] = adafruit_tcs34725.TCS34725(tca[0])
+sensors[1] = adafruit_tcs34725.TCS34725(tca[1])
 #sensor2 = adafruit_tcs34725.TCS34725(tca[2])
 #sensor3 = adafruit_tcs34725.TCS34725(tca[3])
 
@@ -37,7 +37,7 @@ sensor[1] = adafruit_tcs34725.TCS34725(tca[1])
 # Main loop reading color and printing it every second.
 while True:
     
-    sensor = sensor0
+    sensor = sensors[0]
     # Read the color temperature and lux of the sensor too.
     temp = int(sensor.color_temperature)
     lux = int(sensor.lux)
@@ -46,7 +46,7 @@ while True:
     # Delay for a second and repeat.
     
     
-    sensor = sensor1
+    sensor = sensors[1]
     # Read the color temperature and lux of the sensor too.
     temp = int(sensor.color_temperature)
     lux = int(sensor.lux)
