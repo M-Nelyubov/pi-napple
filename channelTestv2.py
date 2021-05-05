@@ -19,7 +19,7 @@ for pin in gpio_channels:        #Iterate through the list of pins one pin at a 
     time.sleep(1)                #timeout for 3 seconds to provide time for observation
     print("low " + str(pin))     #print currently activated pin for testing
     GPIO.output(pin, GPIO.LOW)   #turn pin low
-    time.sleep(0.25)             #pause for a quarter second before proceeding to the next pin
+    time.sleep(1)                #pause for a quarter second before proceeding to the next pin
 print("End of testing all configured GPIO pins")
 
 
