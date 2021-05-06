@@ -104,23 +104,23 @@ def turnLeft(n):
 
 
 refreshSensorLux()
-# while(sensors[0] and sensors[1]):
-#     turnLeft(0.01)
-#     refreshSensorLux()
-# #moveBackward(0.1)
+while(sensors[0] and sensors[1]):
+    turnLeft(0.01)
+    refreshSensorLux()
+moveBackward(0.1)
 
-while(sensors[0] > 1000 and sensors[1] > 1000 and sensors[2] > 1000 and sensors[3] > 1000)    #forward movement when no black tape detected
-    moveFordward(0.1)
-    refreshSensorLux()
-    
-if (sensors[2] < 1000 and sensors[3] < 1000 and sensors[1] > 1000) #turn left when tape ahead and not to the left
-    turnLeft(1)
-    refreshSensorLux()
-
-if (sensors[2] < 1000 and sensors[3] < 1000 and sensors[0] > 1000) #turn right when tape ahead and to the left
-    turnRight(1)
-    refreshSensorLux()
-    
+#while(sensors[0] > 1000 and sensors[1] > 1000 and sensors[2] > 1000 and sensors[3] > 1000)    #forward movement when no black tape detected
+#    moveFordward(0.1)
+#    refreshSensorLux()
+#    
+#if (sensors[2] < 1000 and sensors[3] < 1000 and sensors[1] > 1000) #turn left when tape ahead and not to the left
+#    turnLeft(1)
+#    refreshSensorLux()
+#
+#if (sensors[2] < 1000 and sensors[3] < 1000 and sensors[0] > 1000) #turn right when tape ahead and to the left
+#    turnRight(1)
+#    refreshSensorLux()
+#    
 
 
 GPIO.cleanup()
