@@ -114,7 +114,7 @@ def turnLeft(n):
 
 print("beginning test loop")
 refreshSensorLux()
-while(sensors[0] and sensors[1]):
+while(sensorsLux[0] and sensorsLux[1]):
     turnLeft(0.01)
     refreshSensorLux()
 moveBackward(0.1)
