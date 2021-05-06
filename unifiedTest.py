@@ -42,9 +42,16 @@ sensors[1] = adafruit_tcs34725.TCS34725(tca[1])
 sensors[2] = adafruit_tcs34725.TCS34725(tca[2])
 sensors[3] = adafruit_tcs34725.TCS34725(tca[3])
 
-
-
-
+def refreshSensorLux():
+    str = ""
+    n=0
+    for i in range(4):
+        lux = sensor.lux
+        sensorsLux[i] = lux > 700
+        str+=("s{0} Lux: {1}\t".format(n,lux))
+        n= n+1
+    
+    print(str)
 
 
 
@@ -66,3 +73,17 @@ def moveBackward(n):
     time.sleep(n)
     GPIO.output(26, GPIO.LOW)
     GPIO.output(37, GPIO.LOW)
+
+
+
+
+
+
+
+refreshSensorLux()
+while(sensors[0] and sensors[1]):
+    moveForward(0.01)
+    refreshSensorLux()
+moveBackward(0.1)
+
+GPIO.cleanup()
