@@ -1,13 +1,14 @@
+print("Beginning imports")
 import time
 import board
 import adafruit_tcs34725
 import adafruit_tca9548a
 import busio
 import digitalio
-import adafruit_character_lcd.character_lcd as character_lcd
 import sys
 import RPi.GPIO as GPIO
-GPIO.setwarnings(True)
+print("disabling GPIO warnings")
+GPIO.setwarnings(False)
 
 print("Initializing GPIO channels...")
 gpio_channels = [24,26,35,37]       #Channel number will be output pin number
@@ -19,20 +20,6 @@ print("setting up GPIO channels as outputs")
 GPIO.setup(gpio_channels, GPIO.OUT, initial=GPIO.LOW) # sets up channels (GPIO pins) as an outputs for the motors
 
 
-#intializeLCD
-lcd_columns = 16
-lcd_rows =2
-
-print("Initializing LCD pins")
-lcd_rs = digitalio.DigitalInOut(board.D26)
-lcd_en = digitalio.DigitalInOut(board.D19)
-lcd_d7 = digitalio.DigitalInOut(board.D21)
-lcd_d6 = digitalio.DigitalInOut(board.D5)
-lcd_d5 = digitalio.DigitalInOut(board.D6)
-lcd_d4 = digitalio.DigitalInOut(board.D13)
-
-print("creating an instance of character_lcd")
-lcd = character_lcd.Character_LCD_Mono(lcd_rs, lcd_en, lcd_d4, lcd_d5, lcd_d6,lcd_d7, lcd_columns, lcd_rows)
 
 print("initializing i2c")
 #initialize i2c 
