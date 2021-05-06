@@ -41,7 +41,7 @@ while True:
     n=0
     for sensor in sensors:
         lux = int(sensor.lux)
-        str+=("s{0} Lux: {1}".format(n,lux))
+        str+=("s{0} Lux: {1}\t".format(n,lux))
         n= n+1
     
     print(str)
