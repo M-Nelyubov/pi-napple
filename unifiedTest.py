@@ -7,7 +7,7 @@ import digitalio
 import adafruit_character_lcd.character_lcd as character_lcd
 import sys
 import RPi.GPIO as GPIO
-GPIO.setwarnings(False)
+GPIO.setwarnings(True)
 
 print("Initializing GPIO channels...")
 gpio_channels = [24,26,35,37]       #Channel number will be output pin number
