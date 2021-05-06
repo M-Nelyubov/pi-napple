@@ -37,10 +37,10 @@ tca = adafruit_tca9548a.TCA9548A(i2c)
 #create sensor array
 sensors = [0,0,0,0]
 sensorsLux = [-1,-1,-1,-1]
-sensors[0] = adafruit_tcs34725.TCS34725(tca[0])
-sensors[1] = adafruit_tcs34725.TCS34725(tca[1])
-sensors[2] = adafruit_tcs34725.TCS34725(tca[2])
-sensors[3] = adafruit_tcs34725.TCS34725(tca[3])
+sensors[0] = adafruit_tcs34725.TCS34725(tca[0]) #back right
+sensors[1] = adafruit_tcs34725.TCS34725(tca[1]) #back left
+sensors[2] = adafruit_tcs34725.TCS34725(tca[2]) #front left
+sensors[3] = adafruit_tcs34725.TCS34725(tca[3]) #front right
 
 def refreshSensorLux():
     str = ""
@@ -75,15 +75,52 @@ def moveBackward(n):
     GPIO.output(37, GPIO.LOW)
 
 
+def turnRight(n):
+    GPIO.output(35, GPIO.LOW)
+    GPIO.output(37, GPIO.HIGH)
+    GPIO.output(24, GPIO.HIGH)
+    GPIO.output(26, GPIO.LOW)
+    time.sleep(n)
+    GPIO.output(26, GPIO.LOW)
+    GPIO.output(37, GPIO.LOW)
+    GPIO.output(26, GPIO.LOW)
+    GPIO.output(37, GPIO.LOW)
+    
+def turnLeft(n):
+    GPIO.output(35, GPIO.HIGH)
+    GPIO.output(37, GPIO.LOW)
+    GPIO.output(24, GPIO.LOW)
+    GPIO.output(26, GPIO.HIGH)
+    time.sleep(n)
+    GPIO.output(26, GPIO.LOW)
+    GPIO.output(37, GPIO.LOW)
+    GPIO.output(26, GPIO.LOW)
+    GPIO.output(37, GPIO.LOW)
+    
+    
 
 
 
 
 
 refreshSensorLux()
-while(sensors[0] and sensors[1]):
-    moveForward(0.01)
+# while(sensors[0] and sensors[1]):
+#     turnLeft(0.01)
+#     refreshSensorLux()
+# #moveBackward(0.1)
+
+while(sensors[0] > 1000 and sensors[1] > 1000 and sensors[2] > 1000 and sensors[3] > 1000)    #forward movement when no black tape detected
+    moveFordward(0.1)
     refreshSensorLux()
-moveBackward(0.1)
+    
+if (sensors[2] < 1000 and sensors[3] < 1000 and sensors[1] > 1000) #turn left when tape ahead and not to the left
+    turnLeft(1)
+    refreshSensorLux()
+
+if (sensors[2] < 1000 and sensors[3] < 1000 and sensors[0] > 1000) #turn right when tape ahead and to the left
+    turnRight(1)
+    refreshSensorLux()
+    
+
 
 GPIO.cleanup()
