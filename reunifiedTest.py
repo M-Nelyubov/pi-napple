@@ -23,6 +23,7 @@ def moveForward(n):
 
 def moveBackward(n):
     for i in range(3):
+        print("moving back instance "+str(i))
         GPIO.output(gpio_channels[1], GPIO.HIGH)
         GPIO.output(gpio_channels[3], GPIO.HIGH)
         GPIO.output(gpio_channels[0], GPIO.LOW)
