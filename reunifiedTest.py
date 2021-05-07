@@ -54,6 +54,7 @@ def fineAdjustLeft():
     turnLeft(0.05)
     
 def left90():
+    moveBackward(0.25)
     turnLeft(1.05)
 
 def turnLeft(n):
