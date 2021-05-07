@@ -4,7 +4,7 @@ print("Initializing motors")
 import sys
 import RPi.GPIO as GPIO
 
-gpio_channels = [24,26,35,37]       #Channel number will be output pin number
+gpio_channels = [6,13,19,26]       #Channel number will be output pin number
 
 print("setting GPIO mode")
 GPIO.setmode(GPIO.BCM)            #Sets mode to board numbering
@@ -13,45 +13,45 @@ GPIO.setup(gpio_channels, GPIO.OUT, initial=GPIO.LOW) # sets up channels (GPIO p
 
 
 def moveForward(n):
-    GPIO.output(24, GPIO.HIGH)
-    GPIO.output(35, GPIO.HIGH)
-    GPIO.output(26, GPIO.LOW)
-    GPIO.output(37, GPIO.LOW)
+    GPIO.output(gpio_channels[0], GPIO.HIGH)
+    GPIO.output(gpio_channels[2], GPIO.HIGH)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
     time.sleep(n)
-    GPIO.output(24, GPIO.LOW)
-    GPIO.output(35, GPIO.LOW)
+    GPIO.output(gpio_channels[0], GPIO.LOW)
+    GPIO.output(gpio_channels[2], GPIO.LOW)
 
 def moveBackward(n):
-    GPIO.output(26, GPIO.HIGH)
-    GPIO.output(37, GPIO.HIGH)
-    GPIO.output(24, GPIO.LOW)
-    GPIO.output(35, GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.HIGH)
+    GPIO.output(gpio_channels[3], GPIO.HIGH)
+    GPIO.output(gpio_channels[0], GPIO.LOW)
+    GPIO.output(gpio_channels[2], GPIO.LOW)
     time.sleep(n)
-    GPIO.output(26, GPIO.LOW)
-    GPIO.output(37, GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
 
 
 def turnRight(n):
-    GPIO.output(35, GPIO.LOW)
-    GPIO.output(37, GPIO.HIGH)
-    GPIO.output(24, GPIO.HIGH)
-    GPIO.output(26, GPIO.LOW)
+    GPIO.output(gpio_channels[2], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.HIGH)
+    GPIO.output(gpio_channels[0], GPIO.HIGH)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
     time.sleep(n)
-    GPIO.output(26, GPIO.LOW)
-    GPIO.output(37, GPIO.LOW)
-    GPIO.output(26, GPIO.LOW)
-    GPIO.output(37, GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
     
 def turnLeft(n):
-    GPIO.output(35, GPIO.HIGH)
-    GPIO.output(37, GPIO.LOW)
-    GPIO.output(24, GPIO.LOW)
-    GPIO.output(26, GPIO.HIGH)
+    GPIO.output(gpio_channels[2], GPIO.HIGH)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    GPIO.output(gpio_channels[0], GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.HIGH)
     time.sleep(n)
-    GPIO.output(26, GPIO.LOW)
-    GPIO.output(37, GPIO.LOW)
-    GPIO.output(26, GPIO.LOW)
-    GPIO.output(37, GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
     
     
 
