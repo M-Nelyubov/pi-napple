@@ -14,15 +14,11 @@ print("setting up GPIO")
 GPIO.setup(gpio_channels, GPIO.OUT, initial=GPIO.LOW) # sets up channels (GPIO pins) as an outputs for the motors
 
 
-def activateForward():
+def moveForward(n):
     GPIO.output(gpio_channels[0], GPIO.HIGH)
     GPIO.output(gpio_channels[2], GPIO.HIGH)
     GPIO.output(gpio_channels[1], GPIO.LOW)
     GPIO.output(gpio_channels[3], GPIO.LOW)
-
-
-def moveForward(n):
-    activateForward()
     time.sleep(n)
     GPIO.output(gpio_channels[0], GPIO.LOW)
     GPIO.output(gpio_channels[2], GPIO.LOW)
@@ -128,10 +124,9 @@ def refreshSensorLux():
 refreshSensorLux()
 
 while(sensorLux[0] or sensorLux[1] or sensorLux[2] or sensorLux[3]):
-    activateForward()
     refreshSensorLux()
-    #if(sensorLux[0] and sensorLux[1]):
-    #    moveForward(0.075)
+    if(sensorLux[0] and sensorLux[1]):
+        moveForward(0.075)
     if(sensorLux[0] and not(sensorLux[1])):
         fineAdjustLeft()
     if(sensorLux[1] and not(sensorLux[0])):
