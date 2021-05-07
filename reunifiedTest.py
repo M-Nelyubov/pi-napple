@@ -124,7 +124,7 @@ while(sensorLux[0] or sensorLux[1] or sensorLux[2] or sensorLux[3]):
     if(not(sensorLux[0]) and not(sensorLux[1])):
         if (time.time() % 2):
             left90()
-        else
+        else:
             right90()
 #turnLeft(1.05)
 #time.sleep(5)
