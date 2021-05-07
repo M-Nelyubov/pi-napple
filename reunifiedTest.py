@@ -80,8 +80,8 @@ def turnLeft(n):
 
 #print("Moving forward")
 #moveForward(0.5)
-print("Moving backward")
-moveBackward(1.5)
+#print("Moving backward")
+#moveBackward(1.5)
 
 
 
