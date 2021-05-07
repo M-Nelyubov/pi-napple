@@ -45,6 +45,7 @@ def refreshSensorLux():
     for i in range(4):
         lux = sensor.lux
         sensorsLux[i] = lux > 700
+        lux = sensorsLux[i]
         str+=("s{0} Lux: {1}\t".format(n,lux))
         n= n+1
     
