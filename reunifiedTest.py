@@ -117,7 +117,7 @@ refreshSensorLux()
 #        fineAdjustRight()
 #    if(not(sensorLux[0]) and not(sensorLux[1])):
 #        turnLeft(0.5)
-turnLeft(1)
+turnLeft(1.05)
 #time.sleep(5)
 #moveBackward(1)
 #time.sleep(5)
