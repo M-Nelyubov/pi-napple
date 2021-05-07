@@ -61,11 +61,11 @@ def turnRight(n):
     GPIO.output(gpio_channels[3], GPIO.LOW)
     
 def fineAdjustLeft():
-    turnLeft(0.1)
+    turnLeft(0.666)
     
 def left90():
     moveBackward(0.125)
-    turnLeft(1.05)
+    turnLeft(0.7)
 
 def turnLeft(n):
     GPIO.output(gpio_channels[2], GPIO.HIGH)
