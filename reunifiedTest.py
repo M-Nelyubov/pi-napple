@@ -4,6 +4,8 @@ import time
 import sys
 import RPi.GPIO as GPIO
 
+startTime = time.time()
+
 gpio_channels = [6,13,19,26]       #Channel number will be output pin number
 
 print("setting GPIO mode")
@@ -143,7 +145,7 @@ while(sensorLux[0] or sensorLux[1] or sensorLux[2] or sensorLux[3]):
 #time.sleep(5)
 #turnRight(1)
 
-print("Completed sensor initialization")
+print("Completed. Runtime: "+ str(time.time() - startTime))
 
 
 
