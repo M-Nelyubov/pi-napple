@@ -64,7 +64,7 @@ moveBackward(0.5)
 GPIO.cleanup()
 
 
-#import board
+import board
 import adafruit_tcs34725
 import adafruit_tca9548a
 import busio
