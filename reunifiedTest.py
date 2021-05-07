@@ -35,6 +35,7 @@ def right90():
     turnRight(1)
 
 def fineAdjustRight():
+    moveBackward(0.125)
     turnRight(0.1)
 
 
@@ -54,7 +55,7 @@ def fineAdjustLeft():
     turnLeft(0.1)
     
 def left90():
-    moveBackward(0.25)
+    moveBackward(0.125)
     turnLeft(1.05)
 
 def turnLeft(n):
@@ -123,8 +124,10 @@ while(sensorLux[0] or sensorLux[1] or sensorLux[2] or sensorLux[3]):
         fineAdjustRight()
     if(not(sensorLux[0]) and not(sensorLux[1])):
         if (time.time() % 2):
+            print("decision left")
             left90()
         else:
+            print("decision right")
             right90()
 #turnLeft(1.05)
 #time.sleep(5)
