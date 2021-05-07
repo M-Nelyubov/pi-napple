@@ -6,7 +6,7 @@ GPIO.setwarnings(False)
 gpio_channels = [24,26,35,37]       #Channel number will be output pin number
 
 
-GPIO.setmode(GPIO.BOARD)            #Sets mode to board numbering
+GPIO.setmode(GPIO.BCM)            #Sets mode to board numbering
 
 GPIO.setup(gpio_channels, GPIO.OUT, initial=GPIO.LOW) # sets up channels (GPIO pins) as an outputs for the motors
 
@@ -62,7 +62,7 @@ def moveBackward(n):
 
 def rotateRight(n):
     moveBackward(0.25)
-    
+
 #testchange
 
 GPIO.cleanup()
