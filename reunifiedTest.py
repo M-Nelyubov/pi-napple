@@ -61,6 +61,7 @@ print("Moving backward")
 moveBackward(0.5)
 
 
+GPIO.cleanup()
 
 
 ###import time
