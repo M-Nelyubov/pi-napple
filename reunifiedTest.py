@@ -42,11 +42,11 @@ print("Initializing motors")
 
 import sys
 import RPi.GPIO as GPIO
-###
-###gpio_channels = [24,26,35,37]       #Channel number will be output pin number
-###
-###
-####GPIO.setmode(GPIO.BOARD)            #Sets mode to board numbering
+
+gpio_channels = [24,26,35,37]       #Channel number will be output pin number
+
+print("setting GPIO mode")
+GPIO.setmode(GPIO.BOARD)            #Sets mode to board numbering
 ###print("setting up GPIO")
 ###GPIO.setup(gpio_channels, GPIO.OUT, initial=GPIO.LOW) # sets up channels (GPIO pins) as an outputs for the motors
 ###
