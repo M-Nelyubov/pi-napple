@@ -31,7 +31,7 @@ def moveBackward(n):
         GPIO.output(gpio_channels[1], GPIO.LOW)
         GPIO.output(gpio_channels[3], GPIO.LOW)
         refreshSensorLux()
-        if(not(sensorLux[2]) or (sensorLux[3]))
+        if(not(sensorLux[2]) or (sensorLux[3])):
             return 0
 
 
