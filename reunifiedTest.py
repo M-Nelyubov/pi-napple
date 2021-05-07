@@ -99,6 +99,11 @@ def refreshSensorLux():
 
 refreshSensorLux()
 
+while(sensorsLux[0] and sensorsLux[1]):
+    moveForward(0.01)
+    refreshSensorLux()
+moveBackward(0.1)
+
 print("Completed sensor initialization")
 
 
