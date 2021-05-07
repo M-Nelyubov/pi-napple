@@ -1,6 +1,6 @@
 print("Initializing motors")
 
-
+import time
 import sys
 import RPi.GPIO as GPIO
 
