@@ -123,11 +123,12 @@ while(sensorLux[0] or sensorLux[1] or sensorLux[2] or sensorLux[3]):
     if(sensorLux[1] and not(sensorLux[0])):
         fineAdjustRight()
     if(not(sensorLux[0]) and not(sensorLux[1])):
-        if (int(time.time()) % 2 == 0):
-            print("decision left" + str(int(time.time())))
+        timeInt = int(time.time())
+        if (timeInt % 2 == 0):
+            print("decision left " + str(timeInt))
             left90()
         else:
-            print("decision right" + str(int(time.time())))
+            print("decision right " + str(timeInt))
             right90()
 #turnLeft(1.05)
 #time.sleep(5)
