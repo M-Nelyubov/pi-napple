@@ -3,7 +3,7 @@ import time
 import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 
-gpio_channels = [24,26,35,37]       #Channel number will be output pin number
+gpio_channels = [6,13,19,26] #[24,26,35,37]       #Channel number will be output pin number
 
 
 GPIO.setmode(GPIO.BCM)            #Sets mode to board numbering
