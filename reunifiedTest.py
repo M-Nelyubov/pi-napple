@@ -99,7 +99,7 @@ def refreshSensorLux():
 refreshSensorLux()
 
 while(sensorLux[0] and sensorLux[1]):
-    moveForward(0.05)
+    moveForward(0.075)
     refreshSensorLux()
 moveBackward(0.2)
 
