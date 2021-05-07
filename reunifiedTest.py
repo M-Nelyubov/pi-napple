@@ -68,12 +68,11 @@ GPIO.cleanup()
 import adafruit_tcs34725
 import adafruit_tca9548a
 import busio
-###
-###
-####initializeColorSensor
-###i2c = busio.I2C(board.SCL, board.SDA)
-####sensor = adafruit_tcs34725.TCS34725(i2c)
-###tca = adafruit_tca9548a.TCA9548A(i2c)
+
+#initializeColorSensor
+i2c = busio.I2C(board.SCL, board.SDA)
+#sensor = adafruit_tcs34725.TCS34725(i2c)
+tca = adafruit_tca9548a.TCA9548A(i2c)
 ###sensors = [0,0,0,0]
 ###sensorLux = [-1,-1,-1,-1]
 ###sensors[0] = adafruit_tcs34725.TCS34725(tca[0])
