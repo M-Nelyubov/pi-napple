@@ -121,7 +121,7 @@ refreshSensorLux()
 #time.sleep(5)
 #moveBackward(1)
 #time.sleep(5)
-turnRight(0.95)
+turnRight(1)
 
 print("Completed sensor initialization")
 
