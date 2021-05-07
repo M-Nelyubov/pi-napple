@@ -74,7 +74,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 #sensor = adafruit_tcs34725.TCS34725(i2c)
 tca = adafruit_tca9548a.TCA9548A(i2c)
 sensors = [0,0,0,0]
-sensorLux = [-1,-1,-1,-1]
+sensorLux = [False,False,False,False]
 sensors[0] = adafruit_tcs34725.TCS34725(tca[0])
 sensors[1] = adafruit_tcs34725.TCS34725(tca[1])
 sensors[2] = adafruit_tcs34725.TCS34725(tca[2])
@@ -88,17 +88,17 @@ def refreshSensorLux():
     n=0
     for sensor in sensors:
         lux = int(sensor.lux)
+        sensorLux[i] = lux > 700
+        lux = sensorLux[i]
         str+=("s{0} Lux: {1}\t".format(n,lux))
         n= n+1
     
     print(str)
-    
-    
-    
-    
+
+
+
 refreshSensorLux()
-###
-###print("Completed sensor initialization")
-###
-###
-###
+
+print("Completed sensor initialization")
+
+
