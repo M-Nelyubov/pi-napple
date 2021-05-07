@@ -22,13 +22,17 @@ def moveForward(n):
     GPIO.output(gpio_channels[2], GPIO.LOW)
 
 def moveBackward(n):
-    GPIO.output(gpio_channels[1], GPIO.HIGH)
-    GPIO.output(gpio_channels[3], GPIO.HIGH)
-    GPIO.output(gpio_channels[0], GPIO.LOW)
-    GPIO.output(gpio_channels[2], GPIO.LOW)
-    time.sleep(n)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
+    for i in range(4):
+        GPIO.output(gpio_channels[1], GPIO.HIGH)
+        GPIO.output(gpio_channels[3], GPIO.HIGH)
+        GPIO.output(gpio_channels[0], GPIO.LOW)
+        GPIO.output(gpio_channels[2], GPIO.LOW)
+        time.sleep(n/4)
+        GPIO.output(gpio_channels[1], GPIO.LOW)
+        GPIO.output(gpio_channels[3], GPIO.LOW)
+        refreshSensorLux()
+        if(not(sensorLux[2]) or (sensorLux[3]))
+            return 0
 
 
 def right90():
