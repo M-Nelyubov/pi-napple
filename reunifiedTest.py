@@ -22,12 +22,12 @@ def moveForward(n):
     GPIO.output(gpio_channels[2], GPIO.LOW)
 
 def moveBackward(n):
-    for i in range(4):
+    for i in range(3):
         GPIO.output(gpio_channels[1], GPIO.HIGH)
         GPIO.output(gpio_channels[3], GPIO.HIGH)
         GPIO.output(gpio_channels[0], GPIO.LOW)
         GPIO.output(gpio_channels[2], GPIO.LOW)
-        time.sleep(n/4)
+        time.sleep(n/3)
         GPIO.output(gpio_channels[1], GPIO.LOW)
         GPIO.output(gpio_channels[3], GPIO.LOW)
         refreshSensorLux()
