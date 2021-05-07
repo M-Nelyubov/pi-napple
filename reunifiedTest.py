@@ -31,12 +31,35 @@ def moveBackward(n):
     GPIO.output(gpio_channels[3], GPIO.LOW)
 
 
+def fineAdjustRight():
+    GPIO.output(gpio_channels[2], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.HIGH)
+    GPIO.output(gpio_channels[0], GPIO.HIGH)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    time.sleep(0.05)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    
+
 def turnRight(n):
     GPIO.output(gpio_channels[2], GPIO.LOW)
     GPIO.output(gpio_channels[3], GPIO.HIGH)
     GPIO.output(gpio_channels[0], GPIO.HIGH)
     GPIO.output(gpio_channels[1], GPIO.LOW)
     time.sleep(n)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    
+def fineAdjustLeft():
+    GPIO.output(gpio_channels[2], GPIO.HIGH)
+    GPIO.output(gpio_channels[3], GPIO.LOW)
+    GPIO.output(gpio_channels[0], GPIO.LOW)
+    GPIO.output(gpio_channels[1], GPIO.HIGH)
+    time.sleep(0.05)
     GPIO.output(gpio_channels[1], GPIO.LOW)
     GPIO.output(gpio_channels[3], GPIO.LOW)
     GPIO.output(gpio_channels[1], GPIO.LOW)
@@ -98,10 +121,17 @@ def refreshSensorLux():
 
 refreshSensorLux()
 
-while(sensorLux[0] and sensorLux[1]):
-    moveForward(0.075)
+while(sensorLux[0] or sensorLux[1] or sensorLux[2] or sensorLux[3]):
     refreshSensorLux()
-moveBackward(0.2)
+    if(sensorLux[0] and sensorLux[1])
+        moveForward(0.075)
+    if(sensorLux[0] and not(sensorLux[1]))
+        fineAdjustLeft()
+    if(sensorLux[1] and not(sensorLux[0]))
+        fineAdjustRight()
+    if(not(sensorLux[0]) and not(sensorLux[1]))
+        turnLeft(0.5)
+
 
 print("Completed sensor initialization")
 
