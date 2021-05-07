@@ -123,13 +123,13 @@ refreshSensorLux()
 
 while(sensorLux[0] or sensorLux[1] or sensorLux[2] or sensorLux[3]):
     refreshSensorLux()
-    if(sensorLux[0] and sensorLux[1])
+    if(sensorLux[0] and sensorLux[1]):
         moveForward(0.075)
-    if(sensorLux[0] and not(sensorLux[1]))
+    if(sensorLux[0] and not(sensorLux[1])):
         fineAdjustLeft()
-    if(sensorLux[1] and not(sensorLux[0]))
+    if(sensorLux[1] and not(sensorLux[0])):
         fineAdjustRight()
-    if(not(sensorLux[0]) and not(sensorLux[1]))
+    if(not(sensorLux[0]) and not(sensorLux[1])):
         turnLeft(0.5)
 
 
