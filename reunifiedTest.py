@@ -132,9 +132,9 @@ refreshSensorLux()
 #    if(not(sensorLux[0]) and not(sensorLux[1])):
 #        turnLeft(0.5)
 turnLeft(1)
-time.sleep(2)
+time.sleep(5)
 moveBackward(1)
-time.sleep(2)
+time.sleep(5)
 turnRight(1)
 
 print("Completed sensor initialization")
