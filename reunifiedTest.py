@@ -32,16 +32,9 @@ def moveBackward(n):
 
 
 def fineAdjustRight():
-    GPIO.output(gpio_channels[2], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.HIGH)
-    GPIO.output(gpio_channels[0], GPIO.HIGH)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
-    time.sleep(0.05)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
-    
+    turnRight(0.05)
+
+
 
 def turnRight(n):
     GPIO.output(gpio_channels[2], GPIO.LOW)
@@ -49,21 +42,14 @@ def turnRight(n):
     GPIO.output(gpio_channels[0], GPIO.HIGH)
     GPIO.output(gpio_channels[1], GPIO.LOW)
     time.sleep(n)
+    GPIO.output(gpio_channels[0], GPIO.LOW)
     GPIO.output(gpio_channels[1], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[2], GPIO.LOW)
     GPIO.output(gpio_channels[3], GPIO.LOW)
     
 def fineAdjustLeft():
-    GPIO.output(gpio_channels[2], GPIO.HIGH)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
-    GPIO.output(gpio_channels[0], GPIO.LOW)
-    GPIO.output(gpio_channels[1], GPIO.HIGH)
-    time.sleep(0.05)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
+    turnLeft(0.05)
+    
     
 def turnLeft(n):
     GPIO.output(gpio_channels[2], GPIO.HIGH)
@@ -71,9 +57,9 @@ def turnLeft(n):
     GPIO.output(gpio_channels[0], GPIO.LOW)
     GPIO.output(gpio_channels[1], GPIO.HIGH)
     time.sleep(n)
+    GPIO.output(gpio_channels[0], GPIO.LOW)
     GPIO.output(gpio_channels[1], GPIO.LOW)
-    GPIO.output(gpio_channels[3], GPIO.LOW)
-    GPIO.output(gpio_channels[1], GPIO.LOW)
+    GPIO.output(gpio_channels[2], GPIO.LOW)
     GPIO.output(gpio_channels[3], GPIO.LOW)
     
     
@@ -132,10 +118,10 @@ refreshSensorLux()
 #    if(not(sensorLux[0]) and not(sensorLux[1])):
 #        turnLeft(0.5)
 turnLeft(1)
-time.sleep(5)
-moveBackward(1)
-time.sleep(5)
-turnRight(1)
+#time.sleep(5)
+#moveBackward(1)
+#time.sleep(5)
+#turnRight(1)
 
 print("Completed sensor initialization")
 
