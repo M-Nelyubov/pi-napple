@@ -33,6 +33,8 @@ def moveBackward(n):
         GPIO.output(gpio_channels[3], GPIO.LOW)
         refreshSensorLux()
         if(not(sensorLux[2]) or (sensorLux[3])):
+            print("dark sensor on back")
+            print(sensorLux)
             return 0
 
 
