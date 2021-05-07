@@ -61,7 +61,6 @@ print("Moving backward")
 moveBackward(0.5)
 
 
-GPIO.cleanup()
 
 
 import board
@@ -107,3 +106,5 @@ moveBackward(0.1)
 print("Completed sensor initialization")
 
 
+
+GPIO.cleanup()
