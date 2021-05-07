@@ -37,11 +37,11 @@ refreshSensorLux()
 print("Completed sensor initialization")
 
 
-###print("Initializing motors")
-###
-###
-###import sys
-###import RPi.GPIO as GPIO
+print("Initializing motors")
+
+
+import sys
+import RPi.GPIO as GPIO
 ###
 ###gpio_channels = [24,26,35,37]       #Channel number will be output pin number
 ###
